@@ -1,0 +1,24 @@
+<p><h1 style= 'font-size: 70px; text-align: center'>Vista de productos</h1></p>
+
+{{#if hayProductos}}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col" style= 'font-size: 50px; text-align: center'>Producto</th>
+      <th scope="col" style= 'font-size: 50px; text-align: center'>Precio</th>
+      <th scope="col" style= 'font-size: 50px; text-align: center'>Imagen</th>
+    </tr>
+  </thead>
+  <tbody>
+      {{#each listaProductos}}
+    <tr>
+      <td style= 'font-size: 30px; text-align: center'>{{title}}</td>
+      <td style= 'font-size: 30px; text-align: center'>{{price}}</td>
+      <td style= 'text-align: center'><img class ='img-fluid' src="{{thumbnail}}" alt=""></td>
+    </tr>
+{{/each}}
+  </tbody>
+</table>
+{{else}}
+<p><h2>No se encontraron productos</h2></p>
+{{/if}}
