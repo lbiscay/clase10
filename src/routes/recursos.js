@@ -52,9 +52,8 @@ router.post('/agregar', (req, res) => {
       body.thumbnail,
       productos[productos.length - 1].id + 1
     );
-    res.status(201).json({
-      data: productoDesdeClass.write(productos, nuevoProducto),
-    });
+    productoDesdeClass.write(productos, nuevoProducto);
+    res.redirect('/api/productos/guardar');
   } else {
     res.status(400).json({
       Error: `No se agregó el producto, ${falla} faltantes`,
@@ -101,7 +100,6 @@ router.get('/vista', (req, res) => {
     hayProductos: productoDesdeClass.read(productos).length !== 0,
   });
 });
-
 router.get('/guardar', (req, res) => {
   res.render('agregarProductos');
 });
